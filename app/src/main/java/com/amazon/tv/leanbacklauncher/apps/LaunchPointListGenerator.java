@@ -142,12 +142,10 @@ public class LaunchPointListGenerator {
             if (normLaunchPoints != null && normLaunchPoints.size() > 0) {
                 for (ResolveInfo itemRawLaunchPoint : normLaunchPoints) {
                     if (itemRawLaunchPoint.activityInfo != null && itemRawLaunchPoint.activityInfo.packageName != null && itemRawLaunchPoint.activityInfo.name != null) {
-                        // any system app that isn't TV-optimized likely isn't something the user needs or wants [except for Amazon Music & Photos (which apparently don't get leanback launchers :\)]
-                        if (!Util.isSystemApp(LaunchPointListGenerator.this.mContext, itemRawLaunchPoint.activityInfo.packageName) ||
-                            itemRawLaunchPoint.activityInfo.packageName.startsWith("com.amazon.bueller") ||
-                            itemRawLaunchPoint.activityInfo.packageName.startsWith("com.amazon.venezia") // ||
-                            // itemRawLaunchPoint.activityInfo.packageName.startsWith("com.amazon.hedwig")
-                            ) {
+                        // XD+ users will NEVER need the contacts or settings app (as its already linked in the settings category)
+                        if (!itemRawLaunchPoint.activityInfo.packageName.startsWith("com.android.settings") &&
+                            !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.android.contacts") &&
+			    !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.google.android.googlequicksearchbox")) {
                             if (!rawComponents.containsKey(itemRawLaunchPoint.activityInfo.packageName) &&
                                 !itemRawLaunchPoint.activityInfo.packageName.equals(LaunchPointListGenerator.this.mContext.getPackageName())
                             ) {
