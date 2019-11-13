@@ -219,7 +219,7 @@ public class LegacyAppRowPreferenceFragment extends GuidedStepSupportFragment {
         // RECOMENDATIONS
         boolean state = RowPreferences.areRecommendationsEnabled(activity);
         statelabel = (state) ? getString(R.string.v7_preference_on) : getString(R.string.v7_preference_off);
-        actions.add(new GuidedAction.Builder(activity).id(ACTION_ID_RECOMENDATIONS).title(R.string.recs_row_title).description(statelabel).build());
+        // actions.add(new GuidedAction.Builder(activity).id(ACTION_ID_RECOMENDATIONS).title(R.string.recs_row_title).description(statelabel).build());
         // actions.add(new GuidedAction.Builder(activity).id(ACTION_ID_RECOMENDATIONS).checkSetId(ACTION_ID_RECOMENDATIONS).checked(state).title(statelabel).description("").build());
 
         // FAV
