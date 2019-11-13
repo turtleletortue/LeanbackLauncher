@@ -283,7 +283,7 @@ public class LegacyAppRowPreferenceFragment extends GuidedStepSupportFragment {
         // INPUTS
         state = RowPreferences.areInputsEnabled(activity);
         statelabel = (state) ? getString(R.string.v7_preference_on) : getString(R.string.v7_preference_off);
-        actions.add(new GuidedAction.Builder(activity).id(ACTION_ID_INPUTS).title(R.string.inputs_row_title).description(statelabel).build());
+        // actions.add(new GuidedAction.Builder(activity).id(ACTION_ID_INPUTS).title(R.string.inputs_row_title).description(statelabel).build());
         // actions.add(new GuidedAction.Builder(activity).id(ACTION_ID_INPUTS).checkSetId(ACTION_ID_INPUTS).checked(state).title(statelabel).description("").build());
 
         setActions(actions); // APPLY
