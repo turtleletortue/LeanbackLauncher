@@ -74,7 +74,6 @@ import com.amazon.tv.leanbacklauncher.wallpaper.WallpaperInstaller;
 import com.amazon.tv.leanbacklauncher.widget.EditModeView;
 import com.amazon.tv.leanbacklauncher.widget.EditModeView.OnEditModeUninstallPressedListener;
 import com.amazon.tv.firetv.leanbacklauncher.apps.AppInfoActivity;
-import com.amazon.tv.firetv.tvrecommendations.NotificationListenerMonitor;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -388,9 +387,6 @@ public class MainActivity extends Activity implements OnEditModeChangedListener,
         } finally {
             AppTrace.endSection();
         }
-
-        // added
-        startService(new Intent(this, NotificationListenerMonitor.class));
     }
 
     public void onDestroy() {

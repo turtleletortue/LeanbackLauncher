@@ -96,8 +96,6 @@
             android:name="com.amazon.tv.leanbacklauncher.recommendations.RecommendationsService"
             android:label="@string/recm_service_name" />
 
-        <service android:name="com.amazon.tv.firetv.tvrecommendations.NotificationListenerMonitor" />
-
         <receiver android:name="com.amazon.tv.leanbacklauncher.MediaButtonBroadcastReceiver">
             <intent-filter android:priority="2">
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
