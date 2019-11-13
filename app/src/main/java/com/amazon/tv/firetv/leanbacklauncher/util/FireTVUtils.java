@@ -60,7 +60,7 @@ public class FireTVUtils {
             PackageManager packageManager = context.getPackageManager();
             return packageManager.getApplicationInfo("com.amazon.tv.launcher", 0).enabled;
         } catch (NameNotFoundException unused) {
-            return false;
+            return true;
         }
     }
 
