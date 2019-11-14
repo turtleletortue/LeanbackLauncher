@@ -182,6 +182,8 @@ To enable, go to Settings"</string>
     <string name="edit_favorites" tools:ignore="MissingTranslation">Edit Favorites</string>
     <string name="notifications" tools:ignore="MissingTranslation">Notifications</string>
     <string name="launcher_settings" tools:ignore="MissingTranslation">Launcher</string>
+    <string name="wallpaper" tools:ignore="MissingTranslation">Wallpaper</string>
+    <string name="cleanrom_settings" tools:ignore="MissingTranslation">CleanROM</string>
     <string name="max_rows_title" tools:ignore="MissingTranslation">Max Rows</string>
     <string name="min_rows_title" tools:ignore="MissingTranslation">Min Rows</string>
     <string name="max_favorites_rows_title" tools:ignore="MissingTranslation">Max Favorites Rows</string>

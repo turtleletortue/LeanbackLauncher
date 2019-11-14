@@ -28,6 +28,7 @@ public class WallpaperInstaller {
     private boolean mInstallationPending;
     private boolean mInstallingWallpaper;
     private boolean mWallpaperInstalled;
+	private boolean mWallpaperUpdateRequired;
 
     public static final class WallpaperChangedReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
@@ -68,9 +69,23 @@ public class WallpaperInstaller {
         }
     }
 
+	public Bitmap popWallpaperBitmap() {
+		mWallpaperUpdateRequired = false;
+		return getWallpaperBitmap();
+	}
+
     public Bitmap getWallpaperBitmap() {
         Resources resources = this.mContext.getResources();
-        Drawable systemBg = resources.getDrawable(R.drawable.bg_default, null);
+		Drawable systemBg = null;
+		
+		try
+		{
+			WallpaperManager wmInstance = WallpaperManager.getInstance(this.mContext);
+			systemBg = wmInstance.getDrawable();
+		} catch (Exception ex) {
+			systemBg = resources.getDrawable(R.drawable.bg_default, null);
+		}
+		
         int intrinsicWidth = systemBg.getIntrinsicWidth();
         int intrinsicHeight = systemBg.getIntrinsicHeight();
         int wallpaperWidth = Util.getDisplayMetrics(this.mContext).widthPixels;
@@ -120,5 +135,11 @@ public class WallpaperInstaller {
             edit.remove("wallpaper_version");
         }
         edit.apply();
+		
+		mWallpaperUpdateRequired = true;
     }
+	
+	public boolean isWallpaperUpdateRequired() {
+		return mWallpaperUpdateRequired;
+	}
 }

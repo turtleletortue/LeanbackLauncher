@@ -200,10 +200,10 @@ public class LauncherWallpaper extends FrameLayout implements HomeScrollFraction
     }
 
     private void loadWallpaperIfNeeded() {
-        if (!this.mWallpaperReady && this.mInShyMode) {
+        if (this.mWallpaperInstaller.isWallpaperUpdateRequired() || (!this.mWallpaperReady && this.mInShyMode)) {
             AppTrace.beginSection("WallpaperLoad");
             try {
-                Bitmap bitmap = this.mWallpaperInstaller.getWallpaperBitmap();
+                Bitmap bitmap = this.mWallpaperInstaller.popWallpaperBitmap();
                 this.mWallpaper.setImageBitmap(bitmap);
                 this.mWallpaper.setLayoutParams(new LayoutParams(-1, bitmap.getHeight()));
                 this.mWallpaperReady = true;

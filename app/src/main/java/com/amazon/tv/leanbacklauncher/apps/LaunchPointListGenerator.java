@@ -567,22 +567,37 @@ public class LaunchPointListGenerator {
                 settingsItems.add(lp);
             }
         }
-        // LAUNCHER SETTINGS // 4
+	// WALLPAPER PICKER // 6
+	Intent wpintent = new Intent(Intent.ACTION_SET_WALLPAPER);
+	LaunchPoint lp = new LaunchPoint(this.mContext, mContext.getString(R.string.wallpaper), mContext.getDrawable(R.drawable.ic_settings_wallpaper), wpintent, 0);
+	lp.addLaunchIntentFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+	lp.setSettingsType(SettingsUtil.SettingsType.APP_CONFIGURE.getCode());
+	lp.setPriority(-6);
+	settingsItems.add(lp);
+        // LAUNCHER SETTINGS // 5
         Intent intent = new Intent();
         intent.setComponent(ComponentName.unflattenFromString(this.mContext.getPackageName() + "/.settings.LegacyHomeScreenSettingsActivity"));
-        LaunchPoint lp = new LaunchPoint(this.mContext, mContext.getString(R.string.launcher_settings), mContext.getDrawable(R.drawable.ic_settings_launcher), intent, 0);
+        lp = new LaunchPoint(this.mContext, mContext.getString(R.string.launcher_settings), mContext.getDrawable(R.drawable.ic_settings_launcher), intent, 0);
         lp.addLaunchIntentFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         lp.setSettingsType(SettingsUtil.SettingsType.APP_CONFIGURE.getCode());
-        lp.setPriority(-4);
+        lp.setPriority(-5);
         settingsItems.add(lp);
-        // NOTIFICATIONS // 3
+        // NOTIFICATIONS // 4
         if (FireTVUtils.isLocalNotificationsEnabled(this.mContext)) {
             lp = new LaunchPoint(this.mContext, mContext.getString(R.string.notifications), mContext.getDrawable(R.drawable.ic_settings_notification), FireTVUtils.getNotificationCenterIntent(), 0);
             lp.addLaunchIntentFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             lp.setSettingsType(SettingsUtil.SettingsType.NOTIFICATIONS.getCode());
-            lp.setPriority(-3);
+            lp.setPriority(-4);
             settingsItems.add(lp);
         }
+	// CLEANROM SETTINGS // 3
+	Intent crintent = new Intent();
+	crintent.setComponent(ComponentName.unflattenFromString("com.android.settings/.Settings$CleanROMSettingsActivity"));
+	lp = new LaunchPoint(this.mContext, mContext.getString(R.string.cleanrom_settings), mContext.getDrawable(R.drawable.ic_settings_cleanrom), crintent, 0);
+	lp.addLaunchIntentFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+	lp.setSettingsType(SettingsUtil.SettingsType.APP_CONFIGURE.getCode());
+	lp.setPriority(-3);
+	settingsItems.add(lp);
         // SYS SETTINGS // 1
         if (FireTVUtils.isLauncherSettingsEnabled(this.mContext)) {
             lp = new LaunchPoint(this.mContext, mContext.getString(R.string.system_settings), mContext.getDrawable(R.drawable.ic_settings_settings), FireTVUtils.getSystemSettingsIntent(), 0);
