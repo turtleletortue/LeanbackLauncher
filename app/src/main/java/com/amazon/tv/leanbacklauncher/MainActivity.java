@@ -534,7 +534,8 @@ public class MainActivity extends Activity implements OnEditModeChangedListener,
                         this.mLaunchAnimation.init(new MassSlideAnimator.Builder(this.mList).setDirection(MassSlideAnimator.Direction.SLIDE_IN).setFade(this.mFadeDismissAndSummonAnimations).build(), this.mRefreshHomeAdapter, (byte) 32);
                     }
                 } else if (!dismissLauncher()) {
-                    resetLauncherState(true);
+                    // By commenting this out we prevent the misplacement of the wallpaper!
+                    // resetLauncherState(true);
                 }
             }
         } else if (!this.mLaunchAnimation.isInitialized() && !this.mLaunchAnimation.isScheduled()) {
