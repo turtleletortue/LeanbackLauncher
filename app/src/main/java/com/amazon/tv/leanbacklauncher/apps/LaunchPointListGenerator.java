@@ -145,7 +145,9 @@ public class LaunchPointListGenerator {
                         // XD+ users will NEVER need the contacts or settings app (as its already linked in the settings category)
                         if (!itemRawLaunchPoint.activityInfo.packageName.startsWith("com.android.settings") &&
                             !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.android.contacts") &&
-			    !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.google.android.googlequicksearchbox")) {
+			    !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.google.android.googlequicksearchbox") &&
+			    !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.hdeva.launcher") &&
+			    !itemRawLaunchPoint.activityInfo.packageName.startsWith("com.google.android.apps.nexuslauncher")) {
                             if (!rawComponents.containsKey(itemRawLaunchPoint.activityInfo.packageName) &&
                                 !itemRawLaunchPoint.activityInfo.packageName.equals(LaunchPointListGenerator.this.mContext.getPackageName())
                             ) {
