@@ -592,14 +592,6 @@ public class LaunchPointListGenerator {
             lp.setPriority(-4);
             settingsItems.add(lp);
         }
-	// CLEANROM SETTINGS // 3
-	Intent crintent = new Intent();
-	crintent.setComponent(ComponentName.unflattenFromString("com.android.settings/.Settings$CleanROMSettingsActivity"));
-	lp = new LaunchPoint(this.mContext, mContext.getString(R.string.cleanrom_settings), mContext.getDrawable(R.drawable.ic_settings_cleanrom), crintent, 0);
-	lp.addLaunchIntentFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-	lp.setSettingsType(SettingsUtil.SettingsType.APP_CONFIGURE.getCode());
-	lp.setPriority(-3);
-	settingsItems.add(lp);
         // SYS SETTINGS // 1
         if (FireTVUtils.isLauncherSettingsEnabled(this.mContext)) {
             lp = new LaunchPoint(this.mContext, mContext.getString(R.string.system_settings), mContext.getDrawable(R.drawable.ic_settings_settings), FireTVUtils.getSystemSettingsIntent(), 0);
