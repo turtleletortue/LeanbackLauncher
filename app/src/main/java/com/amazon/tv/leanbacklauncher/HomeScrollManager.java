@@ -48,17 +48,17 @@ public class HomeScrollManager {
     public void onScrolled(int dy, int scrollPosition) {
         if (this.mScrollPosition != scrollPosition) {
             this.mScrollPosition = scrollPosition;
-            if (this.mScrollThreshold > 0) {
-                this.mFractionFromTop = Math.max(0.0f, Math.min(1.0f, Math.abs(((float) this.mScrollPosition) / ((float) this.mScrollThreshold))));
-            } else {
-                this.mFractionFromTop = 0.0f;
-            }
-            boolean shouldAnimate = Math.abs(dy) <= this.mScrollAnimationThreshold;
-            if (shouldAnimate != this.mAnimationsEnabled) {
-                this.mAnimationsEnabled = shouldAnimate;
-                adjustAnimationsEnabledState(this.mRecyclerView);
-            }
-            updateListeners();
+            //if (this.mScrollThreshold > 0) {
+            //    this.mFractionFromTop = Math.max(0.0f, Math.min(1.0f, Math.abs(((float) this.mScrollPosition) / ((float) this.mScrollThreshold))));
+            //} else {
+            //    this.mFractionFromTop = 0.0f;
+            //}
+            //boolean shouldAnimate = Math.abs(dy) <= this.mScrollAnimationThreshold;
+            //if (shouldAnimate != this.mAnimationsEnabled) {
+             //   this.mAnimationsEnabled = shouldAnimate;
+             //   adjustAnimationsEnabledState(this.mRecyclerView);
+            //}
+            //updateListeners();
         }
     }
 
